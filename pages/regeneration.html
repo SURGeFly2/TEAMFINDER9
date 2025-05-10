@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="be">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Меню регистрации</title>
+    <style>
+        body {
+            background-color: #1C2526;
+            font-family: 'Montserrat', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .registration-container {
+            background-color: #1C2526;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            width: 300px;
+            text-align: center;
+        }
+        .registration-container h2 {
+            color: #FFFFFF;
+            background: linear-gradient(90deg, #FF6200, #FFB300);
+            -webkit-background-clip: text;
+            color: transparent;
+            margin-bottom: 20px;
+        }
+        .registration-container input[type="text"],
+        .registration-container input[type="email"],
+        .registration-container input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            background-color: #FFFFFF;
+            border: 2px solid #FF6200;
+            border-radius: 5px;
+            color: #1C2526;
+            font-size: 14px;
+        }
+        .registration-container input[type="text"]:focus,
+        .registration-container input[type="email"]:focus,
+        .registration-container input[type="password"]:focus {
+            border-color: #FFB300;
+            outline: none;
+        }
+        .registration-container button {
+            width: 100%;
+            padding: 12px;
+            background-color: #FF6200;
+            border: none;
+            border-radius: 5px;
+            color: #1C2526;
+            font-size: 16px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .registration-container button:hover {
+            background-color: #FFFFFF;
+            color: #FF6200;
+            border: 2px solid #FF6200;
+        }
+        .login-link {
+            margin-top: 15px;
+        }
+        .login-link a {
+            color: #FFFFFF;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .login-link a:hover {
+            color: #FF6200;
+        }
+    </style>
+</head>
+<body>
+    <div class="registration-container">
+        <h2>РЕГИСТРАЦИЯ</h2>
+        <form>
+            <input type="text" placeholder="Імя" required>
+            <input type="email" placeholder="Электронная пошта" required>
+            <input type="password" placeholder="Пароль" required>
+            <input type="password" placeholder="Паўтарыць пароль" required>
+            <button type="submit">ЗРЕГИСТРАЦИЯ</button>
+            <div class="login-link">
+                <a href="#">У вас уже есть аккаунт? Авторизоваться</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>

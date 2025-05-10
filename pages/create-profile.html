@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Создайте анкету тиммейта на TeamFinder">
+    <title>TeamFinder - Создание анкеты</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <section class="form-container">
+        <div class="container">
+            <h2>Создание анкеты тиммейта</h2>
+            <form id="profileForm" class="profile-form">
+                <div class="form-group">
+                    <label for="game">Игра</label>
+                    <select id="game" name="game" required>
+                        <option value="">Все игры</option>
+                        <option value="cs">CS2</option>
+                        <option value="dota">Dota 2</option>
+                        <option value="valorant">Fortnite</option>
+                        <option value="apex">Apex Legends</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="role">Роль</label>
+                    <select id="role" name="role" required>
+                        <option value="fragger">Fragger</option>
+                        <option value="support">Support</option>
+                        <option value="igl">Igl</option>
+                        <option value="other">Другое</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="wins">Количество побед(необязательно)</label>
+                    <input type="number" id="wins" name="wins" min="0">
+                </div>
+
+                <div class="form-group">
+                    <label for="platform">Платформа</label>
+                    <select id="platform" name="platform" required>
+                        <option value="pc">ПК</option>
+                        <option value="ps">PlayStation</option>
+                        <option value="xbox">Xbox</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="teamSize">Сколько людей требуется</label>
+                    <select id="teamSize" name="teamSize" required>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="tournament">Тип турнира</label>
+                    <select id="tournament" name="tournament" required>
+                        <option value="fortnite-lcq">Fortnite Last Chance Qualifier</option>
+                        <option value="other">Другой турнир</option>
+                    </select>
+                </div>
+                <button type="submit" class="cta-button">Создать анкету</button>
+            </form>
+        </div>
+    </section>
+
+    <footer class="footer-container">
+        <div class="container">
+            <p>© 2025 TeamFinder. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('profileForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Get form values
+            const game = document.getElementById('game').value;
+            const role = document.getElementById('role').value;
+            const wins = document.getElementById('wins').value;
+            const platform = document.getElementById('platform').value;
+            const teamSize = document.getElementById('teamSize').value;
+            const tournament = document.getElementById('tournament').value;
+
+            // Create profile data object
+            const profileData = {
+                game: game,
+                role: role,
+                wins: wins,
+                platform: platform,
+                teamSize: teamSize,
+                tournament: tournament
+            };
+
+            // Store profile data in localStorage
+            localStorage.setItem('userProfile', JSON.stringify(profileData));
+
+            // Redirect to the main page
+            window.location.href = '../index.html';
+        });
+    </script>
+
+    <script type="text/javascript" async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+    <script>
+        if (typeof window.gtag === 'undefined') {
+            document.write('<script src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"><\/script>');
+        }
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXX');
+    </script>
+
+    <script src="../js/script.js"></script>
+</body>
+</html>

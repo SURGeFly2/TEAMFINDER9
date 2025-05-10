@@ -1,0 +1,5 @@
+[
+    {"name": "Alex", "game": "cs", "skill": "pro", "desc": "Ищу тиммейтов для турнира по CS2"},
+    {"name": "Max", "game": "dota", "skill": "intermediate", "desc": "Нужен саппорт для Dota 2"},
+    {"name": "Vika", "game": "valorant", "skill": "beginner", "desc": "Играю в Valorant ради фана"}
+]

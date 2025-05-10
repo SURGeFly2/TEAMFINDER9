@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="TeamFinder - Найди идеальных тиммейтов для ваших любимых игр. Создайте команду и достигайте новых высот!">
+    <title>TeamFinder - Найди свою команду</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet"> <!-- Шрифт для кнопки -->
+    <link rel="website icon" type="png" 
+    href="img/img999.png">
+</head>
+<body>
+    <header class="header-container">
+        <div class="container">
+            <div class="logo">
+                <img src="img/img999.png" alt="TeamFinder Logo" class="logo-img">
+            </div>
+            <nav class="nav-container">
+                <ul>
+                    <li><a href="#home">Главная</a></li>
+                    <li><a href="#search">Поиск</a></li>
+                    <li><a href="">О нас</a></li>
+                </ul>
+            </nav>
+            <button class="buttonl1" onclick="window.location.href='pages/regeneration.html'">Войти</button>
+            <button class="buttonl1" onclick="window.location.href='pages/regeneration.html'">Регестрация</button>
+    </header>
+
+    <section class="hero-container" id="home">
+        <div class="container">
+            <h1>TEAMFINDER</h1>
+            <h2>Найди идеальных тиммейтов для победы</h2>
+            <p>Создай свою команду для любимых игр</p>
+            <div class="wrap">
+                <button class="button" onclick="window.location.href='pages/create-profile.html'">Начать поиск</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="search-container" id="search">
+        <div class="container">
+            <h2>Поиск тиммейтов</h2>
+            <div class="search-form-container">
+                <input type="text" id="searchInput" placeholder="Поиск по навыкам или описанию">
+                <select id="gameSelect">
+                    <option value="">Все игры</option>
+                    <option value="cs">CS2</option>
+                    <option value="dota">Dota 2</option>
+                    <option value="valorant">Valorant</option>
+                </select>
+                <select id="skillSelect">
+                    <option value="">Все уровни</option>
+                    <option value="beginner">Новичок</option>
+                    <option value="intermediate">Средний</option>
+                    <option value="pro">Профессионал</option>
+                </select>
+                <button onclick="searchTeammates()">Найти тиммейтов</button>
+            </div>
+            <div class="results-container" id="results"></div>
+        </div>
+    </section>
+
+    <section class="profile-display">
+        <div class="container">
+            <h2>Ваша анкета</h2>
+            <div id="profileInfo">
+                <!-- Profile info will be displayed here -->
+            </div>
+        </div>
+    </section>
+
+    <section class="about-container" id="about">
+        <div class="container">
+            <h2>О TeamFinder</h2>
+            <p>Мы помогаем геймерам находить единомышленников для совместной игры и достижения новых высот. Регистрируйся и начни играть с сильной командой!</p>
+        </div>
+    </section>
+
+    <footer class="footer-container">
+        <div class="container">
+            <p>© 2025 TeamFinder. Все права защищены.</p>
+        </div>
+    </footer>
+
+    <script>
+        if (window.fetch) {
+            loadScriptAsync("https://cdnjs.cloudflare.com/ajax/libs/fetch/2.0.4/fetch.min.js");
+        }
+
+        function loadScriptAsync(src) {
+            const script = document.createElement("script");
+            script.src = src;
+            script.async = true;
+            document.head.appendChild(script);
+        }
+
+        function setCookie(name, value, days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            var expires = "expires=" + date.toGMTString();
+            document.cookie = name + "=" + value + "; " + expires + "; path=/";
+        }
+
+        window.onload = function() {
+            setCookie("userVisited", "true", 30);
+        };
+    </script>
+
+    <script type="text/javascript" async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+    <script>
+        if (typeof window.gtag === 'undefined') {
+            document.write('<script src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"><\/script>');
+        }
+    </script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXX');
+    </script>
+
+    <script src="js/script.js"></script>
+
+    
+
+    <section class="profile-display">
+        <div class="container">
+            <h2>Ваша анкета</h2>
+            <div id="profileInfo">
+                <!-- Profile info will be displayed here -->
+            </div>
+        </div>
+    </section>
+
+    <section class="profile-display">
+        <div class="container">
+            <h2>Ваша анкета</h2>
+            <div id="profileInfo">
+                <!-- Profile info will be displayed here -->
+            </div>
+        </div>
+    </section>
+
+    <script>
+        window.onload = function() {
+            // Existing cookie code
+            setCookie("userVisited", "true", 30);
+
+            // Retrieve profile data from localStorage
+            const profileDataString = localStorage.getItem('userProfile');
+
+            if (profileDataString) {
+                const profileData = JSON.parse(profileDataString);
+
+                // Display the profile data
+                const profileInfoDiv = document.getElementById('profileInfo');
+                profileInfoDiv.innerHTML = `
+                    <p><strong>Игра:</strong> ${profileData.game}</p>
+                    <p><strong>Роль:</strong> ${profileData.role}</p>
+                    <p><strong>Количество побед:</strong> ${profileData.wins || 'Не указано'}</p>
+                    <p><strong>Платформа:</strong> ${profileData.platform}</p>
+                    <p><strong>Размер команды:</strong> ${profileData.teamSize}</p>
+                    <p><strong>Тип турнира:</strong> ${profileData.tournament}</p>
+                    <button id="deleteProfileBtn" class="button">Удалить анкету</button>
+                    
+                    
+                    
+                `;
+
+                // Add event listener to the delete button
+                document.getElementById('deleteProfileBtn').addEventListener('click', deleteProfile);
+
+            } else {
+                 const profileInfoDiv = document.getElementById('profileInfo');
+                 profileInfoDiv.innerHTML = `<p>Нет созданной анкеты. <a href="pages/create-profile.html">Создать сейчас!</a></p>`;
+            }
+        };
+
+        function deleteProfile() {
+            localStorage.removeItem('userProfile');
+            const profileInfoDiv = document.getElementById('profileInfo');
+            profileInfoDiv.innerHTML = `<p>Нет созданной анкеты. <a href="pages/create-profile.html">Создать сейчас!</a></p>`;
+        }
+    </script>
+
+
+
+
+</body>
+</html>
